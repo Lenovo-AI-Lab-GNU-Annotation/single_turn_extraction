@@ -8,17 +8,17 @@
 
 --------
 **excel**
-sample input: 01.01-01.04.xlsx
-sampel output: 01.01-01.04_extraction.txt
+* sample input: 01.01-01.04.xlsx
+* sampel output: 01.01-01.04_extraction.txt
 
 ---------
 **csv 2017**
 
-sample input: 05.01-05.04.csv
-sample output: 05.01-05.04_extraction_0905.txt
+* sample input: 05.01-05.04.csv
+* sample output: 05.01-05.04_extraction_0905.txt
 
 ---------
 **csv 2016**
 
-sample input: Chat Incident Threads_Apr17.csv
-sample output: Chat Incident Threads_Apr17_extraction.txt
+* sample input: Chat Incident Threads_Apr17.csv
+* sample output: Chat Incident Threads_Apr17_extraction.txt
