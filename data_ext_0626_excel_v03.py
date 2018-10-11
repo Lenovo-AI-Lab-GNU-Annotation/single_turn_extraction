@@ -1,9 +1,13 @@
-
-# coding: utf-8
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # In[18]:
 
+"""
+0905更新日志：
 
+2017-2018年的数据不使用 第0列(A)的chatid，改用第13列的reference_id
+"""
 import re
 import sys
 import os
@@ -22,7 +26,7 @@ arr_excel = [b for b in arr if b[-5:]=='.xlsx']
 
 print (arr_excel)
 
-output_file = [b[:-5]+"_extraction.txt" for b in arr_excel]
+output_file = [b[:-5]+"_extraction_0905.txt" for b in arr_excel]
 
 print (output_file)
 
@@ -69,9 +73,9 @@ for ind,file_name in enumerate(arr_excel):
 	        
 	        if (a.find("' disconnected (",0,40)>0):
 	            if len(chunk)>0:
-	                check_buff = str(row[0].value)+"-"+str(id_num)+"\t"+chunk+"\n"
+	                check_buff = str(row[13].value)+"-"+str(id_num)+"\t"+chunk+"\n"
 	                if check_buff != buff:
-	                    new_text += str(row[0].value)+"-"+str(id_num)+"\t"+chunk+"\n"
+	                    new_text += str(row[13].value)+"-"+str(id_num)+"\t"+chunk+"\n"
 	            continue
 
 	        #chunk = ""
@@ -81,26 +85,21 @@ for ind,file_name in enumerate(arr_excel):
 	            client_text = a[client_text_pos+2:]
 	            #print (index,client_text)
 	            if flag_new_chunk == 0:
-	                chunk = client_text
+	                chunk = client_text+" "#1010更新
 	                id_num += 1
 	                flag_new_chunk = 1
 	            else:
-	                chunk += client_text
+	                chunk += client_text + " "#1010更新
 	                
 	        else:
 	            if flag_new_chunk == 0:
 	                continue
 	            else:
 	                if len(chunk)>0:
-	                    buff = str(row[0].value)+"-"+str(id_num)+"\t"+chunk+"\n"
-	                    new_text += str(row[0].value)+"-"+str(id_num)+"\t"+chunk+"\n"
+	                    buff = str(row[13].value)+"-"+str(id_num)+"\t"+chunk+"\n"
+	                    new_text += str(row[13].value)+"-"+str(id_num)+"\t"+chunk+"\n"
 	                    flag_new_chunk = 0
 	                    continue
-
-	# In[22]:
-
-
-	#print (new_text)
 
 	text_file = open(output_file[ind], "w")
 
